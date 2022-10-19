@@ -16,6 +16,18 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  created(){
+
+    console.log('created...')
+    // yarn global add @vue/cli@^3.12.1
+    let list = ['1','2','3','4','5']
+    list.forEach(function(item){
+      console.log('=====' + item)
+    })
+  },
+  mounted(){
+    console.log('1111111')
   }
 }
 </script>
