@@ -18,7 +18,6 @@ export default {
     msg: String
   },
   created(){
-
     console.log('created...')
     // yarn global add @vue/cli@^3.12.1
     let list = ['1','2','3','4','5']
