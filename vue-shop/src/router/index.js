@@ -42,5 +42,11 @@ const router = new VueRouter({
     routes
 })
 
+//在router/index.js最后添加 (解決自定義按鈕重複點擊跳轉報錯)
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+   return originalPush.call(this, location).catch(err => err)
+}
+
 export default router
 
