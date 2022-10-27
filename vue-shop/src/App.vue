@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <div class="test">jjiajijdsa</div>
-
-    <router-link to="/product">商品</router-link>
-    <router-link to="/order">訂單</router-link>
+    <div class="box">
+      <!-- <router-link to="/product" tag="button" replace>商品</router-link>
+      <router-link to="/order">訂單</router-link> -->
+        <button @click="productClick">商品</button>
+        <button @click="orderClick">訂單</button>
+    </div>
     <router-view></router-view>
-
   </div>
 </template>
 
@@ -13,6 +14,14 @@
 
 export default {
   name: 'App',
+  methods: {
+    productClick(){
+      this.$router.push('/product')
+    },
+    orderClick(){
+      this.$router.push('/order')
+    }
+  },
   components: {
     
   }
@@ -33,8 +42,12 @@ export default {
 <style lang="scss"  scoped>
 // 注意路径后面的分号不能少啊啊啊啊啊
 // @import "~@/assets/scss/_variable.scss";
-.test {
+.box {
+  display: flex;
   background: $theme-color;
+  justify-content: space-around;
 }
-
+.router-link-active {
+  color: #f00;
+}
 </style>
