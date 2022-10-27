@@ -1,10 +1,12 @@
 <template>
-  <div class=""></div>
+  <div class="">關於</div>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: 'About',
+  components: {},
+  props: {},
   data () {
     return {}
   },

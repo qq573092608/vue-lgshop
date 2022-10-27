@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <div class="test">jjiajijdsa</div>
+
+    <router-link to="/product">商品</router-link>
+    <router-link to="/order">訂單</router-link>
+    <router-view></router-view>
+
   </div>
 </template>
 
