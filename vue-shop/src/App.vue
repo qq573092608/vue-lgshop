@@ -3,8 +3,11 @@
     <div class="box">
       <!-- <router-link to="/product" tag="button" replace>商品</router-link>
       <router-link to="/order">訂單</router-link> -->
-        <button @click="productClick">商品</button>
-        <button @click="orderClick">訂單</button>
+        <!-- <button @click="productClick">商品</button>
+        <button @click="orderClick">訂單</button> -->
+
+        <router-link :to="'/product/'+productId" tag="button" replace>商品</router-link>
+      <router-link to="/order">訂單</router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -14,6 +17,11 @@
 
 export default {
   name: 'App',
+  data(){
+    return {
+      productId:'6676'
+    }
+  },
   methods: {
     productClick(){
       this.$router.push('/product')

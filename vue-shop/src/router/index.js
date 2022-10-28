@@ -19,7 +19,7 @@ const routes = [
         redirect: '/product'
     },
     {
-        path: '/product',
+        path: '/product/:productId',
         component:Product
     },
     {
