@@ -9,6 +9,9 @@ import VueRouter from 'vue-router'
 
 // 路由嬾加載
 const Product = () => import('@/components/Product')
+const ProductNews = () => import('../components/ProductNews')
+const ProductMsg = () => import('../components/ProductMsg')
+
 const Order = () => import('@/components/Order')
 const Shopping = () => import('@/components/Shopping')
 const About = () => import('@/components/About')
@@ -24,7 +27,21 @@ const routes = [
     },
     {
         path: '/product/:productId',
-        component:Product
+        component:Product,
+        children:[
+            {
+                path:'',
+                redirect: 'new'
+            },
+            {
+                path:'new',
+                component:ProductNews
+            },
+            {
+                path:'msg',
+                component:ProductMsg
+            }
+        ]
     },
     {
         path: '/shop',
