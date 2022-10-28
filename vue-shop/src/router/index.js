@@ -2,12 +2,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Product from '@/components/Product'
-import Order from '@/components/Order'
-import Shopping from '@/components/Shopping'
-import About from '@/components/About'
+// import Product from '@/components/Product'
+// import Order from '@/components/Order'
+// import Shopping from '@/components/Shopping'
+// import About from '@/components/About'
 
-// const Home = () => import('../components/home.vue')
+// 路由嬾加載
+const Product = () => import('@/components/Product')
+const Order = () => import('@/components/Order')
+const Shopping = () => import('@/components/Shopping')
+const About = () => import('@/components/About')
 
 // 1.通过vue.use（插件），安装插件
 Vue.use(VueRouter)
