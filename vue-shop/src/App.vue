@@ -6,10 +6,14 @@
         <!-- <button @click="productClick">商品</button>
         <button @click="orderClick">訂單</button> -->
 
-        <router-link :to="'/product/'+productId" tag="button" replace>商品</router-link>
+      <router-link :to="'/product/'+productId" tag="button" replace>商品</router-link>
       <router-link to="/order">訂單</router-link>
+      <!-- <router-link to="/shop">購物車</router-link> -->
     </div>
-    <router-view></router-view>
+
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
