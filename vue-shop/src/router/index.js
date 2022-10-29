@@ -15,6 +15,8 @@ const ProductMsg = () => import('../components/ProductMsg')
 const Order = () => import('@/components/Order')
 const Shopping = () => import('@/components/Shopping')
 const About = () => import('@/components/About')
+const Login = () => import('@/components/Login')
+
 
 // 1.通过vue.use（插件），安装插件
 Vue.use(VueRouter)
@@ -23,11 +25,14 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        redirect: '/product'
+        redirect: '/order'
     },
     {
         path: '/product/:productId',
         component:Product,
+        meta: {
+            title: '商品'
+        },
         children:[
             {
                 path:'',
@@ -35,25 +40,52 @@ const routes = [
             },
             {
                 path:'new',
-                component:ProductNews
+                component:ProductNews,
+                meta: { title: '產品新聞' }
+
             },
             {
                 path:'msg',
-                component:ProductMsg
+                component:ProductMsg,
+                meta: { title: '產品消息' }
             }
-        ]
+        ],
+        beforeEnter:(to, from, next) => {
+            console.log('beforeEnter:' + to + '---' + from)
+            next()
+        }
     },
     {
         path: '/shop',
-        component:Shopping
+        meta: {
+            title: '購物車'
+        },
+        component:Shopping,
+        beforeEnter:(to, from) => {
+            console.log('beforeEnter:' + to + '---' + from)
+        }
     },
     {
         path: '/order',
+        meta: {
+            title: '訂單'
+        },
         component:Order
     },
     {
         path: '/about',
+        meta: {
+            title: '關於'
+        },
         component:About
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        meta: {
+            title: '登錄'
+        },
+        component:Login
     }
 ]
 
@@ -61,6 +93,13 @@ const routes = [
 const router = new VueRouter({
     mode: 'history',
     routes
+})
+
+router.beforeEach((to, from, next) => {
+
+    console.log(to)
+    document.title = to.meta.title
+    next()
 })
 
 //在router/index.js最后添加 (解決自定義按鈕重複點擊跳轉報錯)
