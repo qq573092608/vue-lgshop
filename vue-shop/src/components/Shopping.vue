@@ -1,5 +1,5 @@
 <template>
-  <div class="">購物</div>
+  <div class="">購物000000000</div>
 </template>
 
 <script>

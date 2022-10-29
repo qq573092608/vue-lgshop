@@ -25,7 +25,7 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        redirect: '/order'
+        redirect: '/shop'
     },
     {
         path: '/product/:productId',
@@ -61,8 +61,9 @@ const routes = [
             title: '購物車'
         },
         component:Shopping,
-        beforeEnter:(to, from) => {
+        beforeEnter:(to, from, next) => {
             console.log('beforeEnter:' + to + '---' + from)
+            next()
         }
     },
     {
@@ -70,7 +71,11 @@ const routes = [
         meta: {
             title: '訂單'
         },
-        component:Order
+        component:Order,
+        // beforeEnter:(to, from, next) => {
+        //     console.log('order before...')
+        //     next({path: '/login'})
+        // }
     },
     {
         path: '/about',
@@ -99,7 +104,13 @@ router.beforeEach((to, from, next) => {
 
     console.log(to)
     document.title = to.meta.title
-    next()
+
+    let isLogin = true
+    if(to.matched[0].path.indexOf('order') !== -1 && !isLogin ) {
+        next({path: '/login'})
+    } else {
+        next()
+    }
 })
 
 //在router/index.js最后添加 (解決自定義按鈕重複點擊跳轉報錯)
