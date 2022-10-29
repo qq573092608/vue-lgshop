@@ -11,7 +11,7 @@
       <!-- <router-link to="/shop">購物車</router-link> -->
     </div>
 
-    <keep-alive>
+    <keep-alive exclude="Login,About">
       <router-view></router-view>
     </keep-alive>
   </div>
