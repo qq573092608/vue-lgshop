@@ -25,8 +25,21 @@ export default {
   name: 'App',
   data(){
     return {
-      productId:'6676'
+      productId:'6676',
+      testPromise: new Promise((resole, reject) => {
+        setTimeout(() => {
+          resole('Hellow World!!')
+        }, 2000);
+      })
     }
+  },
+  async created(){
+    let res = await this.testPromise
+    console.log('testResult is =000===>' + res)
+    console.log('======created======')
+  },
+  mounted(){
+    this.testAwait()
   },
   methods: {
     productClick(){
@@ -34,7 +47,13 @@ export default {
     },
     orderClick(){
       this.$router.push('/order')
-    }
+    },
+    async testAwait(){
+     let result = await this.testPromise
+     console.log('testResult is ====>' + result)
+    },
+
+
   },
   components: {
     Tabbar
