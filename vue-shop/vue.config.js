@@ -11,6 +11,10 @@ module.exports = defineConfig({
     config.resolve.alias
     .set('@',resolve('src'))
     .set('style',resolve('src/assets/scss'))
+    .set('components',resolve('src/components'))
+    .set('network',resolve('src/network'))
+    .set('views',resolve('src/views'))
+    .set('assets',resolve('src/assets'))
   },
   css:{
     loaderOptions:{

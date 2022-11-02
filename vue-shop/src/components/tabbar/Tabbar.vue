@@ -1,23 +1,23 @@
 <template>
   <div class="tabbar">
     <tabbar-item :path = "'/product/' + productId">
-        <img class="tabbarIcon" slot="tabIconActive" src="~@/assets/img/tabbar/home_active.svg" />
-        <img class="tabbarIcon" slot="tabIcon" src="~@/assets/img/tabbar/home.svg" />
+        <img class="tabbarIcon" slot="tabIconActive" src="~assets/img/tabbar/home_active.svg" />
+        <img class="tabbarIcon" slot="tabIcon" src="~assets/img/tabbar/home.svg" />
         <div slot="tabName">產品</div>
     </tabbar-item>
     <tabbar-item path='/shop'>
-      <img class="tabbarIcon" slot="tabIconActive" src="~@/assets/img/tabbar/cart_active.svg" />
-        <img class="tabbarIcon" slot="tabIcon" src="~@/assets/img/tabbar/cart.svg" />
+      <img class="tabbarIcon" slot="tabIconActive" src="~assets/img/tabbar/cart_active.svg" />
+        <img class="tabbarIcon" slot="tabIcon" src="~assets/img/tabbar/cart.svg" />
         <div slot="tabName">購物車</div>
     </tabbar-item>
     <tabbar-item path='/order'>
-      <img class="tabbarIcon" slot="tabIconActive" src="~@/assets/img/tabbar/category_active.svg" />
-        <img class="tabbarIcon" slot="tabIcon" src="~@/assets/img/tabbar/category.svg" />
+      <img class="tabbarIcon" slot="tabIconActive" src="~assets/img/tabbar/category_active.svg" />
+        <img class="tabbarIcon" slot="tabIcon" src="~assets/img/tabbar/category.svg" />
         <div slot="tabName">訂單</div>
     </tabbar-item>
     <tabbar-item path='/about'>
-      <img class="tabbarIcon" slot="tabIconActive" src="~@/assets/img/tabbar/profile_active.svg" />
-        <img class="tabbarIcon" slot="tabIcon" src="~@/assets/img/tabbar/profile.svg" />
+      <img class="tabbarIcon" slot="tabIconActive" src="~assets/img/tabbar/profile_active.svg" />
+        <img class="tabbarIcon" slot="tabIcon" src="~assets/img/tabbar/profile.svg" />
         <div slot="tabName">我的</div>
     </tabbar-item>
   </div>

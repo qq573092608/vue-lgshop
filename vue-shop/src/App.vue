@@ -68,6 +68,8 @@ export default {
 <style lang="scss"  scoped>
 // 注意路径后面的分号不能少啊啊啊啊啊
 // @import "~@/assets/scss/_variable.scss";
+@import "~@/assets/scss/base.scss";
+
 .box {
   display: flex;
   background: $theme-color;
