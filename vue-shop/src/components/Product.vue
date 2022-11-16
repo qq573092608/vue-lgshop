@@ -1,5 +1,8 @@
 <template>
   <div>
+    <nav-bar>
+      <div slot="center">商品</div>
+    </nav-bar>
     <div class="">產品</div>
     <div>{{userId}}</div>
 
@@ -10,10 +13,12 @@
 </template>
 
 <script>
+import NavBar from '@/components/common/navbar/NavBar.vue'
+
 export default {
   name: 'Product',
   components: {
-
+    NavBar
   },
   props: {},
   data () {
