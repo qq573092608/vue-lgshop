@@ -1,5 +1,8 @@
 <template>
   <div>
+    <nav-bar>
+      <div slot="center">商品</div>
+    </nav-bar>
     <div class="">產品</div>
     <div>{{userId}}</div>
 
@@ -10,14 +13,19 @@
 </template>
 
 <script>
+import NavBar from '@/components/common/navbar/NavBar.vue'
+import { queryProduct } from '@/network/product_api/ProductApi.js'
+
 export default {
   name: 'Product',
   components: {
-
+    NavBar
   },
   props: {},
   data () {
-    return {}
+    return {
+      productList: ''
+    }
   },
   computed: {
     userId(){
@@ -26,9 +34,19 @@ export default {
     }
   },
   watch: {},
-  created () {},
+  created () {
+    this.getProductList()
+  },
   mounted () {},
-  methods: {},
+  methods: {
+    // 查询产品列表
+    async getProductList() {
+      let res = await queryProduct()
+      console.log('queryProduct==' + JSON.stringify(res.data.banner.list))
+      this.productList = res.data
+      console.log(this.productList)
+    }
+  },
   // 記錄上一次離開的位置
   beforeRouteLeave(to, from, next){
     console.log('beforeRouteLeave===' + this.$route.path)
