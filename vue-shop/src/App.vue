@@ -35,8 +35,6 @@ export default {
   },
   async created(){
     let res = await this.testPromise
-    console.log('testResult is =000===>' + res)
-    console.log('======created======')
   },
   mounted(){
     this.testAwait()
@@ -50,10 +48,7 @@ export default {
     },
     async testAwait(){
      let result = await this.testPromise
-     console.log('testResult is ====>' + result)
     },
-
-
   },
   components: {
     Tabbar

@@ -5,7 +5,6 @@ import router from './router'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import { request } from './network/request'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true
