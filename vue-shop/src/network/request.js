@@ -9,7 +9,6 @@ export function request(config) {
                 timeout: 5000
             }
         )
-
         // 2.拦截器
         instance.interceptors.request.use(
             cfg => {
@@ -20,17 +19,14 @@ export function request(config) {
 
             }
         )
-
         instance.interceptors.response.use(
             res => {
-                
-                return res.data
+                return resolve(res.data)
             },
             err => {
-                
+                return reject(err)
             }
         )
-
         return instance(config)
     })
 }
