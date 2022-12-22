@@ -14,7 +14,7 @@
 
 <script>
 import NavBar from '@/components/common/navbar/NavBar.vue'
-import { queryProduct } from '@/network/product_api/ProductApi.js'
+import { queryBanner, queryClassify } from '@/network/product_api/ProductApi.js'
 
 export default {
   name: 'Product',
@@ -35,17 +35,25 @@ export default {
   },
   watch: {},
   created () {
-    this.getProductList()
+    this.getBanners()
+    this.getAllClasses()
   },
   mounted () {},
   methods: {
-    // 查询产品列表
-    async getProductList() {
-      let res = await queryProduct()
-      console.log('queryProduct==' + JSON.stringify(res.data.banner.list))
+    // 查询banner图片
+    async getBanners() {
+      let res = await queryBanner()
+      console.log('queryProduct==' + JSON.stringify(res.data))
       this.productList = res.data
       console.log(this.productList)
+    },
+
+    // 查询所有商品分类
+    async getAllClasses () {
+      let res = await queryClassify()
+      console.log('============' + res.data)
     }
+
   },
   // 記錄上一次離開的位置
   beforeRouteLeave(to, from, next){

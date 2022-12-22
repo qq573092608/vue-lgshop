@@ -4,15 +4,20 @@ export function request(config) {
     return new Promise((resolve, reject) => {
         // 1.创建axios实例
         const instance = axios.create(
-            {
-                baseURL: 'http://123.207.32.32:8000',
-                timeout: 5000
-            }
+        {
+            //baseURL: 'http://123.207.32.32:8000',
+            baseURL: 'http://www.lgcasa.com',
+            timeout: 5000
+        }
         )
         // 2.拦截器
         instance.interceptors.request.use(
             cfg => {
                 // 1.token校验  2.加载动画  3.服务器特定要求的配置信息
+                cfg.headers = {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+
                 return cfg
             },
             err => {
@@ -21,6 +26,10 @@ export function request(config) {
         )
         instance.interceptors.response.use(
             res => {
+                // 从响应头中获取 JSESSIONID
+                // const jsessionid = res.headers['set-cookie'].find(cookie => cookie.startsWith('JSESSIONID')).split(';')[0].split('=')[1];
+                // 将 JSESSIONID 保存到本地存储中
+                // localStorage.setItem('JSESSIONID', jsessionid);
                 return resolve(res.data)
             },
             err => {
