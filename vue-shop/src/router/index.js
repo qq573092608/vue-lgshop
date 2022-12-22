@@ -2,10 +2,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// import Product from '@/components/Product'
-// import Order from '@/components/Order'
-// import Shopping from '@/components/Shopping'
-// import About from '@/components/About'
 
 // 路由嬾加載
 const Product = () => import('@/components/Product')
@@ -28,7 +24,7 @@ const routes = [
         redirect: '/shop'
     },
     {
-        path: '/product/:productId',
+        path: '/product',
         component:Product,
         meta: {
             title: '商品'
@@ -55,6 +51,34 @@ const routes = [
             next()
         }
     },
+    // {
+    //     path: '/product/:productId',
+    //     component:Product,
+    //     meta: {
+    //         title: '商品'
+    //     },
+    //     children:[
+    //         {
+    //             path:'',
+    //             redirect: 'new'
+    //         },
+    //         {
+    //             path:'new',
+    //             component:ProductNews,
+    //             meta: { title: '產品新聞' }
+
+    //         },
+    //         {
+    //             path:'msg',
+    //             component:ProductMsg,
+    //             meta: { title: '產品消息' }
+    //         }
+    //     ],
+    //     beforeEnter:(to, from, next) => {
+    //         console.log('beforeEnter:' + to + '---' + from)
+    //         next()
+    //     }
+    // },
     {
         path: '/shop',
         meta: {

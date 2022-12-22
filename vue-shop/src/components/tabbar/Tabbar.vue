@@ -1,6 +1,7 @@
 <template>
   <div class="tabbar">
-    <tabbar-item :path = "'/product/' + productId">
+    <!-- <tabbar-item :path = "'/product/' + productId">  -->
+    <tabbar-item path = '/product'>
         <img class="tabbarIcon" slot="tabIconActive" src="~assets/img/tabbar/home_active.svg" />
         <img class="tabbarIcon" slot="tabIcon" src="~assets/img/tabbar/home.svg" />
         <div slot="tabName">產品</div>
