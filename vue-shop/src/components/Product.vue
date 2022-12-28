@@ -24,7 +24,8 @@ export default {
   props: {},
   data () {
     return {
-      productList: ''
+      productList: '',
+      bannerImgs: []
     }
   },
   computed: {
@@ -43,9 +44,9 @@ export default {
     // 查询banner图片
     async getBanners() {
       let res = await queryBanner()
-      console.log('queryProduct==' + JSON.stringify(res.data))
-      this.productList = res.data
-      console.log(this.productList)
+      this.bannerImgs = res.data.filter(object => object.advertisingPath !== '')
+                                .map(object => object.advertisingPath);
+
     },
 
     // 查询所有商品分类
