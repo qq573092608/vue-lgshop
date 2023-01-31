@@ -20,6 +20,8 @@
 
 <script>
 import Tabbar from '@/components/tabbar/Tabbar.vue'
+import {chunk} from 'lodash-es'
+
 
 export default {
   name: 'App',
@@ -38,8 +40,15 @@ export default {
   },
   mounted(){
     this.testAwait()
+    // loadsh常用函数
+   this.loadsh()
+
   },
   methods: {
+    loadsh () {
+       const list = chunk(['a', 'b', 'c', 'd'], 2)
+       console.log(list[0])
+    },
     productClick(){
       this.$router.push('/product')
     },
