@@ -13,6 +13,8 @@ const Shopping = () => import('@/components/Shopping')
 const About = () => import('@/components/About')
 const Login = () => import('@/components/Login')
 
+const BomponentB = () => import('@/components/test/tab/ComponentB')
+
 
 // 1.通过vue.use（插件），安装插件
 Vue.use(VueRouter)
@@ -22,6 +24,10 @@ const routes = [
     {
         path: '/',
         redirect: '/shop'
+    },
+    {
+        path: '/componentb',
+        component:BomponentB
     },
     {
         path: '/product',

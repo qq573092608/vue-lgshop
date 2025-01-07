@@ -7,7 +7,19 @@
 </template>
 <script>
 export default {
-    name: 'NavBar'
+    name: 'NavBar',
+    beforeCreate() {
+        console.log('44444444');
+        
+    },
+    created() {
+        console.log('555555555');
+        
+    },
+    mounted() {
+        console.log('66666666');
+        
+    },
 }
 </script>
 <style>
